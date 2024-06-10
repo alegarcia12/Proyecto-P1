@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="js/clases.js"></script>
+    <script src="js/sistema.js"></script>
+    <script src="js/codigo.js"></script>
+    <link rel="stylesheet" href="css/estilos.css" />
+  </head>
+  <body>
+    <!--  -->
+    <div id="contenedor">
+       <!-- Navegacion principal y menu de secciones -->
+      <div id="cabezal" class="clearfix">
+        <img
+          id="logo"
+          src="https://www.muycomputer.com/wp-content/uploads/2018/08/Maquinas_virtuales.jpg"
+          alt="logo"
+        />
+        <ul id="navPrincipal">
+
+          <li id="btnSeccionIngresar" class="btnSeccion">
+            <a>Ingresar</a>
+          </li>
+  
+          <li id="btnSeccionAlquilar" class="btnSeccion user">
+            <a>Alquilar</a>
+          </li>
+          <li id="btnSeccionListado" class="btnSeccion user">
+            <a>Listado</a>
+          </li>
+          <li id="btnSeccionCostoTotal" class="btnSeccion user">
+            <a>Costo Total</a>
+          </li>
+          <li id="btnSeccionUsuarios" class="btnSeccion admin">
+            <a>Usuarios</a>
+          </li>
+          <li id="btnSeccionStock" class="btnSeccion admin">
+            <a>Stock</a>
+          </li>
+          <li id="btnSeccionInforme" class="btnSeccion admin">
+            <a>Informe</a>
+          </li>
+          <li id="btnSeccionSalir" >
+            <a>Salir</a>
+          </li>
+          <div id="aux">
+            <p id="nombreUsuarioLogueado"></p>
+          </div>
+        </ul>
+        <!-- FIN AUX -->
+      </div>
+      <!-- FIN CABEZAL -->
+      <div id="contenido">
+        <!-- Seccion para ingresar en la aplicacion -->
+        <div id="seccionIngresar" class="seccion">
+          <h3>Inicio de Sesión</h3>
+        
+          <select name="" id="slcSeccionIngresar">
+            <option value="">Tipo de Usuario</option>
+            <option value="usuario">Usuario</option>
+            <option value="administrador">Administrador</option>
+          </select>
+          <label for="txtUsuarioIngresar">Nombre de usuario</label>
+          <input type="text" id="txtUsuarioIngresar" value="usu1">
+        
+          <label for="txtContraseniaIngresar">Contrasenia</label>
+          <input type="password" id="txtContraseniaIngresar" value="Usu123">
+        
+          <input type="button" value="Iniciar Sesión" id="btnInicioSesion">
+          
+          <p id="pResultadoIngresar"></p>
+        </div>  
+      <!-- Seccion para registrarse en la aplicacion -->
+    <div id="seccionRegistrarse" class="seccion">
+    <h3>Registro</h3>
+
+    <label for="txtNombreRegistro">Nombre</label>
+    <input type="text" id="txtNombreRegistro" value="Max">
+
+    <label for="txtApellidoRegistro">Apellido</label>
+    <input type="text" id="txtApellidoRegistro" value="Verstappen"> 
+
+    <label for="txtUsuarioRegistro">Nombre de usuario</label>
+    <input type="text" id="txtUsuarioRegistro" value="Max1">
+
+    <label for="txtContraseniaRegistro">Contraseña</label>
+    <input type="password" id="txtContraseniaRegistro" value="Max123">
+
+    <label for="txtTarjetaRegistro">Numero de tarjeta de credito</label>
+    <input type="text" id="txtTarjetaRegistro" value="4548-8120-4940-0004">
+
+    <label for="txtCVregistro">CVC</label>
+    <input type="text" id="txtCVregistro" value="285">
+
+    <input type="button" value="Registrarse" id="btnRegistroUsuario">
+
+    <p id="pResultadoRegistrar"></p>
+</div>  
+<!-- Seccion para alquilar maquinas virtuales -->
+<div id="seccionAlquilar" class="seccion">
+  <h3>Alquiler de Maquinas Virtuales</h3>
+
+  <label for="slcTipoInstancia">Tipo de instancia</label>
+  <select id="slcTipoInstancia"></select><br>
+
+  <input type="button" id="btnAlquilar" value="Alquilar">
+
+  <p id="pSeccionAlquilar"></p>
+
+</div>
+<!-- Seccion donde se muestran las maquinas alquiladas por el usuario -->
+<div id="seccionListado" class="seccion">
+  
+  <h3>Listado de Maquinas Alquiladas</h3>
+
+  <select id="slcMaquinasAlquiladasUsuario">
+    <option value="">Todas las Instancias</option>
+    <option value="Encendida">Encendidas</option>
+    <option value="Apagada" >Apagadas</option>
+  </select>
+
+  <input type="button" value="Filtrar" id="buttonFiltrar">
+
+  <table border="1">
+    <thead>
+    <tr>
+      <th>Instancia</th>
+      <th>Estado</th>
+      <th>Veces Encendida</th>
+    </tr>
+  </thead>
+  <tbody id="tblListadoMaquinasAlquiladas">
+
+  </tbody>
+  </table>
+  
+</div>
+<!-- Seccion donde se muestra el costo total y las maquinas alquiladas por todos los usuarios -->
+<div id="seccionCostoTotal" class="seccion">
+  
+  <h3>Costo Total de Alquiler</h3>
+
+  <table border="1">
+    <thead>
+    <tr>
+      <th>Tipo de Instancia</th>
+      <th>Costo por encendido</th>
+      <th>Total de veces encendida</th>
+      <th>Costo total</th>
+    </tr>
+  </thead>
+  <tbody id="tblCostoTotal">
+  </tbody>
+  </table>
+
+  <p id="pCostoTotal"></p>
+</div>
+
+<!-- Seccion donde se muestran la lista completa de usuarios y dodne pueden modificarse su estado -->
+<div id="seccionUsuarios" class="seccion">
+  
+<h3>Lista de Usuario</h3>
+
+<table border="1">
+  <thead>
+<tr>
+  <th>Nombre</th>
+  <th>Apellido</th>
+  <th>Nombre de Usuario</th>
+  <th>Estado</th>
+  <th>Acciones</th>
+</tr>
+</thead>
+<tbody id="tblListaUsuarios">
+
+</tbody>
+</table>
+
+</div>
+<!-- Sección donde se muestra el stock de las máquinas -->
+<div id="seccionStock" class="seccion">
+  <h3>Modificar stock</h3>
+
+  
+  <table border="1">
+    <thead>
+        <tr>
+          <th>id Maquina</th>
+          <th>Tipo de Instancia</th>
+          <th>Maquinas Alquiladas</th>
+          <th>Stock Actual</th>
+          <th>Nuevo stock</th>
+        </tr>
+    </thead>
+
+    <tbody id="tblTipoInstanciaStock">
+
+    </tbody>
+
+  </table>
+
+  <p id="pMensajeErrorStock"></p>
+
+</div>  
+
+<!-- Sección donde se muestra el informe de las máquinas -->
+<div id="seccionInforme" class="seccion">
+  
+<h3>Informe de Maquinas Virtuales</h3>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Tipo de instancia</th>
+      <th>Cantidad Alquilada</th>
+      <th>Encendidos Totales</th>
+      <th>Ingreso Total Actual (U$D)</th>
+    </tr>
+  </thead>
+  <tbody id="tblInformeMaquinas">
+  </tbody>
+</table>
+
+  <p id="pInresosMaquinasVirtualesAdm"></p>
+  
+</div>
+      </div>
+      <!-- FIN CONTENIDO -->
+      <div id="footer">
+        <a href="">Inicio</a>
+      </div>
+      <!-- FIN PIE -->
+    </div>
+    <!-- FIN CONTENEDOR -->
+  </body>
+</html>
